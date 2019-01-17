@@ -35,3 +35,27 @@ def testTuple(toTuple):
         print(tuple(toTuple))
 
 testTuple([12, 45, 6, 79, 105])
+
+# class practice
+class Person:
+    def __init__(self, name, age, occupation):
+        self.name = name
+        self.age = age
+        self.occupation = occupation
+
+    def printIntro(self):
+        print(f"Hello I'm {self.name}, I am {self.age} years old and I am a {self.occupation}.")
+
+    def calculateDrinkAge(self):
+        if self.age > 18:
+            print('I can legally buy alcohol in the UK')
+        else:
+            print('I cannot legally buy alcohol in the UK')
+    
+james = Person('James Robinson', 27, 'Developer')
+andrew = Person('Andrew Doe', 17, 'Waiter')
+
+james.printIntro()
+james.calculateDrinkAge()
+andrew.printIntro()
+andrew.calculateDrinkAge()
