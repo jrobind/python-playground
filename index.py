@@ -1,5 +1,7 @@
 # learning playground
 
+from datetime import datetime
+
 # function and conditional practice
 def testFunction(name, config):
     if name:
@@ -59,3 +61,32 @@ james.printIntro()
 james.calculateDrinkAge()
 andrew.printIntro()
 andrew.calculateDrinkAge()
+
+# decorators practice
+def my_decorator(fn):
+    def wrapper():
+        return fn() + ' From the decorator!'
+    return wrapper
+
+# decorators wrap a function, modifying its behavior.
+@my_decorator
+def greeting():
+    return 'Hello!'
+
+print(greeting())
+
+def greet_during_day(fn):
+    def wrapper():
+        if datetime.now().hour < 18:
+            return fn() + ' From the decorator!'
+        else:
+            pass
+    return wrapper
+
+@greet_during_day
+def greet():
+    return 'Good day!'
+
+print(greet())
+
+
