@@ -89,4 +89,19 @@ def greet():
 
 print(greet())
 
+# read and write practice
+test_file_w = open('./test.txt', 'w')
 
+# write
+test_file_w.write('Hello World')
+test_file_w.close()
+
+# read
+test_file_r = open('./test.txt', 'r')
+print(test_file_r.read())
+
+# looping over file contents
+file = open('./test.txt', 'r')
+
+for line in file:
+    print(line)
