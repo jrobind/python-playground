@@ -2,16 +2,27 @@
 # attempt to guess the word with a limited number of attempts. Only one letter is to be
 # submitted by the user at a time. 
 
+import os
+
 class Hangman(object):
-    def __init__(self):
-        # temporary test word for now
-        self.word = 'test'
+    def __init__(self, difficulty):
+        # source words depending on difficulty
+        self.difficulty = difficulty
+        self.word = self.source_word(difficulty)
         self.guesses_made = 0
         self.correct_guess = False
         self.letter_guesses = []
         self.word_guesses = []
         # run game
         self.run_game()
+
+    def source_word(self, difficulty):
+        folder = os.path.dirname(os.path.abspath(__file__))
+
+        if (difficulty == 'easy'):
+            f = open(os.path.join(folder, "words_easy.txt"), "r")
+        else:
+            f = open("words_hard.txt", "r")
 
     def run_game(self):
         while (not(self.correct_guess)):
@@ -40,4 +51,5 @@ class Hangman(object):
         print('Well done! You guessed correct! The correct word is ' + self.word)
 
 # initiate game
-Hangman()
+diff = raw_input('Welcome to Hangman, please select a diffculty: Easy or Hard ')
+Hangman(diff)
