@@ -3,8 +3,12 @@
 # submitted by the user at a time. 
 
 import os
+import random
 
 class Hangman(object):
+    """A Hangman game class.
+    User inputs difficulty (easy or hard) which initates game.
+    """
     def __init__(self, difficulty):
         # source words depending on difficulty
         self.difficulty = difficulty
@@ -22,16 +26,21 @@ class Hangman(object):
         if (difficulty == 'easy'):
             file = open(r'%s/words_easy.txt' % dir_path)
             # format words into readable string
-            words = file.read().replace('\n', ' ')
+            words = file.read().replace('\n', ' ').split()
+            return self.random_word_gen(words)
 
         else:
             file = open(r'%s/words_hard.txt' % dir_path)
-            words = file.read().replace('\n', ' ')
+            words = file.read().replace('\n', ' ').split()
+            return self.random_word_gen(words)
 
     def run_game(self):
         while (not(self.correct_guess)):
             self.get_guesses()
 
+    def random_word_gen(self, words):
+        index = random.randint(0, len(words))
+        return words[index]
 
     def get_guesses(self):
         self.guesses_made += 1
