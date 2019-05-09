@@ -20,13 +20,18 @@ class Hangman(object):
         dir_path = '/Users/jamesrobinson/Desktop/personal projects/pythonProject/games/game_data'
 
         if (difficulty == 'easy'):
-            f = open(r'%s/words_easy.txt' % dir_path)
+            file = open(r'%s/words_easy.txt' % dir_path)
+            # format words into readable string
+            words = file.read().replace('\n', ' ')
+
         else:
-            f = open(r'%s/words_hard.txt' % dir_path)
+            file = open(r'%s/words_hard.txt' % dir_path)
+            words = file.read().replace('\n', ' ')
 
     def run_game(self):
         while (not(self.correct_guess)):
             self.get_guesses()
+
 
     def get_guesses(self):
         self.guesses_made += 1
@@ -52,4 +57,4 @@ class Hangman(object):
 
 # initiate game
 diff = raw_input('Welcome to Hangman, please select a diffculty: Easy or Hard ')
-Hangman(diff)
+Hangman(diff.lower())
