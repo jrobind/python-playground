@@ -17,12 +17,12 @@ class Hangman(object):
         self.run_game()
 
     def source_word(self, difficulty):
-        folder = os.path.dirname(os.path.abspath(__file__))
+        dir_path = '/Users/jamesrobinson/Desktop/personal projects/pythonProject/games/game_data'
 
         if (difficulty == 'easy'):
-            f = open(os.path.join(folder, "words_easy.txt"), "r")
+            f = open(r'%s/words_easy.txt' % dir_path)
         else:
-            f = open("words_hard.txt", "r")
+            f = open(r'%s/words_hard.txt' % dir_path)
 
     def run_game(self):
         while (not(self.correct_guess)):
