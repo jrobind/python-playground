@@ -1,6 +1,7 @@
 croquet
 fjord
 wildebeest
+incongruous
 haphazard
 klutz
 haiku
@@ -15,7 +16,14 @@ gypsy
 transgress
 ostracize
 hyphen
+awkward
+disseminate
+oxygen
+pajama
+chastise
 zealous
+convoluted
+diatribe
 bungler
 eloquent
 syndrome
@@ -37,3 +45,6 @@ dwarves
 fervid
 vaporize
 intransigence
+assiduous
+dichotomy
+facetious
