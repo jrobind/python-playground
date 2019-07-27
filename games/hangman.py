@@ -5,6 +5,7 @@
 import os
 import random
 
+
 class Hangman(object):
     """A Hangman game class.
     User inputs difficulty (easy or hard) which initates game.
@@ -21,14 +22,13 @@ class Hangman(object):
         self.run_game()
 
     def source_word(self, difficulty):
-        dir_path = '/Users/jamesrobinson/Desktop/personal projects/pythonProject/games/game_data'
+        dir_path = './game_data'
 
         if (difficulty == 'easy'):
             file = open(r'%s/words_easy.txt' % dir_path)
             # format words into readable string
             words = file.read().replace('\n', ' ').split()
             return self.random_word_gen(words)
-
         else:
             file = open(r'%s/words_hard.txt' % dir_path)
             words = file.read().replace('\n', ' ').split()
@@ -57,12 +57,23 @@ class Hangman(object):
                 if (guess == self.word):
                     self.correct_guess = True
                     self.winMessage()
+
+            if (self.fail_message().lower() == 'no'):
+                self.correct_answer_message()
             
+    def fail_message(self):
+        return raw_input("Sorry, that's incorrect. Would you like to try again? ")
+
+    def correct_answer_message(self):
+        print('The correct word is {}'.format(self.word))
+        self.correct_guess = True
+    
     def format_letters(self, letters):
         return  ' '.join(letters)
 
-    def winMessage(self):
+    def win_message(self):
         print('Well done! You guessed correct! The correct word is ' + self.word)
+        self.correct_guess = True
 
 # initiate game
 diff = raw_input('Welcome to Hangman, please select a diffculty: Easy or Hard ')
