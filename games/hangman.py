@@ -51,7 +51,7 @@ class Hangman(object):
     def run_checks(self):
         if (self.guesses_made > 0):
             self.word_guesses.append(raw_input(
-                'Current guessed letters: ' + self.format_letters(self.letter_guesses) + ' Please guess the word:  '))
+                'Current guessed letters: {} Please guess the word: '.format(self.format_letters(self.letter_guesses))))
             # loop over guesses to check if any are correct
             for guess in self.word_guesses:
                 if (guess == self.word):
@@ -72,7 +72,7 @@ class Hangman(object):
         return  ' '.join(letters)
 
     def win_message(self):
-        print('Well done! You guessed correct! The correct word is ' + self.word)
+        print('Well done! You guessed correct! The correct word is {} '.format(self.word))
         self.correct_guess = True
 
 # initiate game
